@@ -1,0 +1,17 @@
+# Go build artifacts
+*.exe
+*.exe~
+*.test
+*.out
+
+bin/
+tmp/
+build/
+
+coverage.out
+
+.env
+
+.vscode/
+.idea/
+.DS_Store
