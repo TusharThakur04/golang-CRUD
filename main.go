@@ -9,8 +9,10 @@ func main() {
 	r := gin.Default()
 
 	userGroup  := r.Group("/users")
+	userRoutes := &routes.UserRoutes{}
+	
 
-	routes.RegisterUserRoutes(userGroup)
+	userRoutes.Register(userGroup)
 
 
 	r.Run(":8000")

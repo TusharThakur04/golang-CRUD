@@ -1,20 +1,27 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/tusharthakur04/golang-CRUD/handlers"
+)
 
-func RegisterUserRoutes(router *gin.RouterGroup){
+type UserRoutes struct{}
 
-	router.GET("/" ,func(c *gin.Context){
-		c.JSON(200 , gin.H{
-			"users":"user list",
-		})
 
-	})
-	router.GET("/:id", Getuser)
-	router.POST("/", CreateUser)
-	router.PUT("/:id", UpdateUser)
-	router.DELETE("/:id", DeleteUser)
+
+func (u *UserRoutes) Register(router *gin.RouterGroup){
+
+	h := &handlers.UserHandler{}
+
+
+	router.GET("/" ,h.GetUsers)
+	router.GET("/:id", h.GetUser)
+	router.POST("/", h.CreateUser)
+	router.PUT("/:id", h.UpdateUser)
+	router.DELETE("/:id", h.DeleteUser)
 
 }
+
+
 
 
